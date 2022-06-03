@@ -1,0 +1,30 @@
+<mat-sidenav-container class="sidenav-container" *ngIf="Islogged()">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === true">
+   
+    <mat-toolbar></mat-toolbar>
+    <mat-nav-list>
+    <mat-list-item><mat-icon class="UserActive"aria-label="UserActive">account_circle</mat-icon>
+    </mat-list-item> </mat-nav-list>
+    <mat-nav-list *ngFor="let menuItem of menuList" >
+      <app-menu-item [text]="menuItem.text" [icon]="menuItem.icon" [route]="menuItem.route" ></app-menu-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="(isHandset$ | async)===false">
+        <mat-icon aria-label="Menu">menu_open</mat-icon>
+      </button>
+      <span class="span">Plataforma Universitaria</span>
+    </mat-toolbar>
+    <!-- Routing -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
