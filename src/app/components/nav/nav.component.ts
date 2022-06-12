@@ -9,6 +9,7 @@ import { StorageService } from 'src/app/services/storage/storage.service';
 import { Router } from '@angular/router';
 
 
+
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
@@ -50,17 +51,28 @@ export class NavComponent {
     .pipe(
       map(result => result.matches),
       shareReplay()
+     
     );
+      
 
-  constructor(private breakpointObserver: BreakpointObserver, private _storageService: StorageService,private _router: Router) {}
-  
+  constructor(private breakpointObserver: BreakpointObserver, private _storageService: StorageService,private _router: Router) {
+
+  }
+  userName= this._storageService.getStorage('user');
   
   Islogged(){
     if (this._storageService.getStorage('jwtToken')){
       return true;
+    
       
     }else{
       return false;
-    }}
       
+        
+      }
+      
+    }
 }
+    
+      
+

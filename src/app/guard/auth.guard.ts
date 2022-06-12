@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, CanActivateChild, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
+import { LoginFormComponent } from '../components/login-form/login-form.component';
 import { StorageService } from '../services/storage/storage.service';
 
 @Injectable({
@@ -20,7 +21,10 @@ export class AuthGuard implements CanActivate, CanActivateChild {
       return false;
     }
 
+  
   }
+
+
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {

@@ -1,0 +1,54 @@
+
+<div >
+    <form [formGroup]="modifyForm" (ngSubmit)="modify()" class="example-form">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Detalle de Cursos</mat-label>
+          <input matInput disabled>
+        </mat-form-field>
+      
+        <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+          <mat-button-toggle (click)=" deletedCourses()"  >Borrar</mat-button-toggle>
+          <mat-button-toggle (click)="modify()" >Modificar</mat-button-toggle>
+        </mat-button-toggle-group><br><br><br>
+    
+        <table class="example-full-width" cellspacing="0"><tr>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Nombre</mat-label>
+            <input matInput  value="{{courses.name}}" >
+          </mat-form-field></td>
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Index(s)</mat-label>
+            <input matInput value="{{courses.index}}">
+          </mat-form-field></td>
+        </tr></table>
+
+        <!--<p>
+
+          <mat-selection-list #students [multiple]="false">
+            <mat-list-option *ngFor="let shoe of studentsEnrolled" [value]="studentsEnrolled">
+              {{studentsEnrolled}}
+            </mat-list-option>
+          </mat-selection-list>
+        </p>-->
+      
+      
+          <td><mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Creado Por</mat-label>
+            <input matInput disabled value="{{courses.createBy}}">
+          </mat-form-field></td>
+    
+        <table class="example-full-width" cellspacing="0"><tr>
+            
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Fecha última modificación</mat-label>
+              <input matInput disabled value="{{courses.updatedAt}}">
+            </mat-form-field></td>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Modificado por:</mat-label>
+              <input matInput  value="{{courses.updateBy}}">
+            </mat-form-field></td>
+          </tr></table>
+          
+      </form>
+    </div>  
+

@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>
+  {{title}}
+  </h1>
+  
+  <div mat-dialog-content>
+  <p>{{message}}</p>
+  </div>
+  
+  <div mat-dialog-actions>
+    <button mat-button (click)="onDelete()">No</button>
+    <button mat-raised-button (click)="onCommand()">Si</button>
+    </div>
+
+
+
+<!--
+<h1 mat-dialog-title>Borrar Estudiante</h1>
+<div mat-dialog-content>
+  ¿Quieres borrar este estudiante?
+</div>
+<div mat-dialog-actions>
+  
+  <button mat-button mat-dialog-close >Si</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial>No</button>
+</div>-->

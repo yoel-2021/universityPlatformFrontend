@@ -1,0 +1,52 @@
+<div>
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+       <mat-grid-list cols="1" rowHeight="50px">
+           <mat-grid-tile [colspan]="1" [rowspan]="1">
+               <div>
+                   <h2>Registro de Cursos</h2>
+               </div>
+           </mat-grid-tile>
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+           <mat-form-field class="example-full-width" appearance="fill">
+           <input matInput placeholder="Nombre" formControlName="name" type="text"/>   
+             </mat-form-field>
+          </mat-grid-tile> 
+
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="example-full-width" appearance="fill">
+            <input matInput placeholder="Contenido" formControlName="index" type="text"/>   
+              </mat-form-field>
+           </mat-grid-tile> 
+
+         
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Agregar Estudiantes</mat-label>
+              <mat-select [(ngModel)]="selectedValue" formControlName="idStudentsEnrolled">
+                <mat-option *ngFor="let student of students" [value]="student.value">
+                  {{student.viewValue}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field></mat-grid-tile>
+
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+                <mat-form-field class="example-full-width" appearance="fill">
+                  <mat-label>Agregar Categoria</mat-label>
+                  <mat-select [(ngModel)]="selectedValue2" formControlName="idStudentsEnrolled">
+                    <mat-option *ngFor="let category of categories" [value]="category.value">
+                      {{category.viewValue}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field></mat-grid-tile>
+  
+          
+          <mat-grid-tile [colspan]="1" [rowspan]="1">
+           <button type="submit" [disabled]="registerForm.invalid">
+               Registrar Curso
+           </button></mat-grid-tile><br>
+           <router-outlet></router-outlet>
+       </mat-grid-list>
+            
+   </form>
+  </div>
+

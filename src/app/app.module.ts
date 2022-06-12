@@ -23,12 +23,20 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MenuItemComponent } from './components/menu-item/menu-item.component';
-import { StudentsTableComponent } from './components/students-table/students-table.component';
-import { StepperRegisterStudentComponent } from './components/stepper-register-student/stepper-register-student.component';
-import { CoursesTableComponent } from './components/courses-table/courses-table.component';
-import { CategoriesTableComponent } from './components/categories-table/categories-table.component';
 import { UsersRegisterComponent } from './components/users-register/users-register.component';
-import { StudentsDataComponent } from './components/students-data/students-data.component';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { StudentsDataTableComponent } from './components/students-data-table/students-data-table.component';
+import { DialogDeleteStudentsComponent } from './components/dialog-delete-students/dialog-delete-students.component';
+import { RegisterStudentsComponent } from './components/register-students/register-students.component';
+import { CoursesDataTableComponent } from './components/courses-data-table/courses-data-table.component';
+import { RegisterCoursesComponent } from './components/register-courses/register-courses.component';
+import { CoursesDetailPageComponent } from './pages/courses-detail-page/courses-detail-page.component';
+import { RegisterCategoriesComponent } from './components/register-categories/register-categories.component';
+import { CategoriesDetailPageComponent } from './pages/categories-detail-page/categories-detail-page.component';
+import { CategoriesDataTableComponent } from './components/categories-data-table/categories-data-table.component';
+
 
 @NgModule({
   declarations: [
@@ -42,12 +50,18 @@ import { StudentsDataComponent } from './components/students-data/students-data.
     StudentsDetailPageComponent,
     NavComponent,
     MenuItemComponent,
-    StudentsTableComponent,
-    StepperRegisterStudentComponent,
-    CoursesTableComponent,
-    CategoriesTableComponent,
     UsersRegisterComponent,
-    StudentsDataComponent
+    StudentsDataTableComponent,
+    DialogDeleteStudentsComponent,
+    RegisterStudentsComponent,
+    CoursesDataTableComponent,
+    RegisterCoursesComponent,
+    CoursesDetailPageComponent,
+    RegisterCategoriesComponent,
+    CategoriesDetailPageComponent,
+    CategoriesDataTableComponent,
+    
+  
   ],
   imports: [
     BrowserModule,
@@ -62,7 +76,10 @@ import { StudentsDataComponent } from './components/students-data/students-data.
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule
 
   ],
   providers: [],

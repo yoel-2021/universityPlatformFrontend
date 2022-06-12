@@ -1,0 +1,77 @@
+<br><br><div class="example-button-row">
+  <button  mat-raised-button routerLink="/studentsRegister" color="warn">Nuevo Estudiante</button>
+</div><br><br>
+
+
+<div class="mat-elevation-z8">
+  <!--Search component-->
+    <div class="filter" >
+  <mat-form-field fxFlex="100%">
+    <input [(ngModel)]="nameSearch" [(ngModel)]="lastNameSearch"  [(ngModel)]="emailSearch" matInput type="text" placeholder="Filtrar" (keyup)="filterData()"/>
+  </mat-form-field>
+    </div>
+
+<div class="mat-elevation-z8">
+  <table mat-table class="full-width-table" matSort aria-label="Elements">
+   
+    <!-- Id Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Id</th>
+      <td mat-cell *matCellDef="let row">{{row.id}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Nombre</th>
+      <td mat-cell *matCellDef="let row">{{row.name}}</td>
+    </ng-container>
+
+     <!-- LastName Column -->
+     <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Apellido(s)</th>
+      <td mat-cell *matCellDef="let row">{{row.lastName}}</td>
+    </ng-container>
+
+     <!-- email Column -->
+     <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Correo electronico</th>
+      <td mat-cell *matCellDef="let row">{{row.email}}</td>
+    </ng-container>
+
+     <!-- birthday Column -->
+     <ng-container matColumnDef="birthday">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Fecha de Nacimiento</th>
+      <td mat-cell *matCellDef="let row">{{row.birthday |date: 'dd/MM/yyyy'}}</td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Actiones</th>
+      <td mat-cell *matCellDef="let row">
+        
+          <div class="example-flex-container">
+            <div class="example-button-container">
+              <button (click)="goToStudentDetail(row)"  mat-fab color="accent" aria-label="Example icon button with a bookmark icon" >
+                <mat-icon>loupe</mat-icon>
+              </button>
+              <button (click)="goToStudentDetail(row)" mat-fab color="primary" aria-label="Example icon button with a delete icon">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </div>
+          </div>
+        
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator #paginator
+      [length]="dataSource?.data?.length"
+      [pageIndex]="0"
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 20]"
+      aria-label="Select page">
+  </mat-paginator>
+</div>

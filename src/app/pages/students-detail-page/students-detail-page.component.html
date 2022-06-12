@@ -1,1 +1,78 @@
-<app-nav></app-nav>
+
+<div >
+<form [formGroup]="modifyForm" (ngSubmit)="modify()" class="example-form">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Ficha de Estudiante</mat-label>
+      <input matInput disabled>
+    </mat-form-field>
+  
+    <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+      <mat-button-toggle (click)=" deletedStudents()"  >Borrar</mat-button-toggle>
+      <mat-button-toggle (click)="modify()" >Modificar</mat-button-toggle>
+    </mat-button-toggle-group><br><br><br>
+
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput value="{{students.name}}" >
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Apellido(s)</mat-label>
+        <input matInput value="{{students.lastName}}">
+      </mat-form-field></td>
+    </tr></table>
+  
+    <p>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>email</mat-label>
+        <textarea matInput value="{{students.email}}"></textarea>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Fecha de nacimiento</mat-label>
+        <textarea matInput value="{{students.birthday |date:'yyyy/MM/dd'}}"></textarea>
+      </mat-form-field>
+    </p>
+    
+    <p>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Calle</mat-label>
+            <textarea matInput value="{{students.street}}"></textarea>
+          </mat-form-field>
+    </p>
+  
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Ciudad</mat-label>
+        <input matInput value="{{students.city}}">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Comunidad</mat-label>
+        <input matInput value="{{students.community}}">
+      </mat-form-field></td>
+    </tr></table>
+
+    <table class="example-full-width" cellspacing="0"><tr>
+    <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Codigo Postal </mat-label>
+        <input matInput #postalCode maxlength="5" placeholder="Ex. 94105" value="{{students.zipCode}}">
+        <mat-hint align="end">{{postalCode.value.length}} / 5</mat-hint>
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Creado Por</mat-label>
+        <input matInput value="{{students.createBy}}">
+      </mat-form-field></td></tr></table>
+
+    <table class="example-full-width" cellspacing="0"><tr>
+        
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Fecha última modificación</mat-label>
+          <input matInput value="{{students.updatedAt}}">
+        </mat-form-field></td>
+        <td><mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Modificado por:</mat-label>
+          <input matInput value="{{students.updateBy}}">
+        </mat-form-field></td>
+      </tr></table>
+
+  </form>
+</div>  

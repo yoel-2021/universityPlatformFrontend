@@ -1,0 +1,29 @@
+.example-form {
+    min-width: 150px;
+    max-width: 300px;
+    width: 50%;
+    margin: auto;
+    
+  }
+  
+  .example-full-width {
+    width: 50%;
+    
+  }
+  
+  .example-full-width2 {
+    width: 12%;
+    
+  }
+  .example-full-width3 {
+    width: 8%;
+    margin-right: 100px;
+    
+  }
+  td {
+    padding-right: 8px;
+  }
+  
+ .btn{
+   align-self: center;
+ }

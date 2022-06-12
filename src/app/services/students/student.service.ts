@@ -17,9 +17,85 @@ export class StudentService {
       headers: new HttpHeaders(
       {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer:${token}`
-      }
-      )
-    });
+        'Authorization': `Bearer:${token}`,
+        
+      }) });
    }
+
+   registerStudents(name:string,email: string,lastName:string,birthday: Date,createBy:string,createdAt:Date,updateBy:string,updatedAt:Date,id:number,city:string,street:string,community:string,country:string,zipCode:number,idCourses:string ):Observable<Student[]>{
+    let body= {
+      name:name,
+      email:email,
+      lastName:lastName,
+      birthday:birthday,
+      createBy:createBy,
+      createdAt:createdAt,
+      updateBy:updateBy,
+      updatedAt:updatedAt,
+      id:id,
+      city:city,
+      street:street,
+      community:community,
+      country:country,
+      zipCode:zipCode,
+      idCourses:idCourses
+    }
+
+    let token = this._storageService.getStorage('jwtToken');
+    return this._htpp.post<Student[]>('https://localhost:7248/api/Students',body,{
+      headers: new HttpHeaders(
+      {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer:${token}`,
+        
+      }) });
+   }
+
+   modifyStudents(name:string,email: string,lastName:string,birthday: Date,createBy:string,createdAt:Date,updateBy:string,updatedAt:Date,id:number,city:string,street:string,community:string,country:string,zipCode:number):Observable<Student[]>{
+
+    let body= {
+      name:name,
+      email:email,
+      lastName:lastName,
+      birthday:birthday,
+      createBy:createBy,
+      createdAt:createdAt,
+      updateBy:updateBy,
+      updatedAt:updatedAt,
+      id:id,
+      city:city,
+      street:street,
+      community:community,
+      country:country,
+      zipCode:zipCode,
+      
+    }
+
+    let token = this._storageService.getStorage('jwtToken');
+    let _url = 'https://localhost:7248/api/Students'
+    let _urlEnviar = `${_url}/${id}`
+    return this._htpp.put<Student[]>(_urlEnviar,{
+      headers: new HttpHeaders(
+      {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer:${token}`,
+        
+      }) });
+   }
+
+   deleteStudents(id: number):Observable<{}>{
+    let token = this._storageService.getStorage('jwtToken');
+    let _url = 'https://localhost:7248/api/Students'
+    let _urlEnviar = `${_url}/${id}`
+    return this._htpp.delete<Student[]>(_urlEnviar,{
+      headers: new HttpHeaders(
+      {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer:${token}`,
+        
+      }) });
+   }
+
+
+
 }
